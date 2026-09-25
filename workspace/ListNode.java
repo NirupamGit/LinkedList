@@ -22,7 +22,7 @@ public class ListNode
 	
 	// accessors
 
-	// pre-condition: value is either null or a valid Object.
+    // pre-condition: value is either null or a valid Object.
 	// post-condition: value is returned.
 	public String getValue()
 	{
