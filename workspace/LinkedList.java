@@ -14,6 +14,10 @@ Problem:  Write a program that keeps and manipulates a linked list of
 	Output:  the results to the screen of each menu
 	    choice, and error messages where appropriate.
 */
+//Nirupam S. Vadigi
+//This class contains the code used to add, remove, and show values of a llinked list
+import java.util.List;
+
 public class LinkedList {
 
   // instance varialbes go here (think about what you need to keep track of!)
@@ -21,7 +25,6 @@ public class LinkedList {
 
   public LinkedList() {
     head = null;
-
   }
 
   // constructors go here
@@ -96,4 +99,25 @@ public class LinkedList {
   public void clear() {
     head = null;
   }
+  
+  // public String reverse() {
+  //   if (head == null){
+  //     return "null";
+  //   }
+  //   ListNode prev=head;
+  //   ListNode curr=prev.getNext();
+  //   if(curr == null){
+  //     return head.getValue();
+  //   }
+  //   ListNode next=curr.getNext();
+
+  //   while (curr!=null) {
+  //     //link the current node to previous
+  //     curr.setNext(prev);
+  //     prev=prev.getNext();
+      
+  //   }
+  //   return null;
+    
+  // }
 }
