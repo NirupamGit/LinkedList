@@ -100,6 +100,8 @@ public class LinkedList {
     head = null;
   }
   
+  //pre condition: the list has been initialized
+  //post condition: reverses the entire linked list such that the tail node is the head node and head node is the tail node
   public void reverse() {
     if (head == null){
       return ;
@@ -126,6 +128,9 @@ public class LinkedList {
     return;
     
   }
+
+  //pre condition: the linked list has been initialized
+  //post condition: take n chunk of nodes and reverse them. if there aren't enough nodes at the end, those nodes aren't reversed
   public void nReverse(ListNode list, int n) {
     if (head == null){
       return ;
