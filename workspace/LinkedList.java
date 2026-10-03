@@ -100,24 +100,59 @@ public class LinkedList {
     head = null;
   }
   
-  // public String reverse() {
-  //   if (head == null){
-  //     return "null";
-  //   }
-  //   ListNode prev=head;
-  //   ListNode curr=prev.getNext();
-  //   if(curr == null){
-  //     return head.getValue();
-  //   }
-  //   ListNode next=curr.getNext();
+  public void reverse() {
+    if (head == null){
+      return ;
+    }
+    ListNode prev=null;
+    ListNode curr=head;
+    if(curr.getNext() == null){
+      return ;
+    }
+    ListNode next=curr.getNext();
 
-  //   while (curr!=null) {
-  //     //link the current node to previous
-  //     curr.setNext(prev);
-  //     prev=prev.getNext();
-      
-  //   }
-  //   return null;
+    while (curr!=null) {
+      //link the current node to previous
+      System.out.println("reversing "+curr.getValue());
+      System.out.println("going to link it to"+(prev==null ? null : prev.getValue()));
+      curr.setNext(prev);
+      prev = curr;
+      curr = next;
+      if (next!= null) {
+      next = next.getNext();
+      }
+      head=prev;
+    }
+    return;
     
-  // }
+  }
+  public void nReverse(ListNode list, int n) {
+    if (head == null){
+      return ;
+    }
+    ListNode prev=null;
+    ListNode curr=head;
+    ListNode next=curr.getNext();
+    if(curr.getNext() == null){
+      return ;
+    }
+    while (curr!=null) {
+      ListNode checkNext=curr;
+      int count = 0;  
+      while (checkNext!=null) {
+        checkNext=checkNext.getNext();
+        count++;
+      }
+      if(count<n) {
+        return;
+      }
+    }
+    for (int i =0; i<n; i++) {
+      next=curr.getNext();
+      prev=curr;
+    }
+    return;
+
+  }
+
 }
