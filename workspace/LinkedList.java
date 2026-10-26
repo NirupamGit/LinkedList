@@ -132,32 +132,44 @@ public class LinkedList {
   //pre condition: the linked list has been initialized
   //post condition: take n chunk of nodes and reverse them. if there aren't enough nodes at the end, those nodes aren't reversed
   public void nReverse(ListNode list, int n) {
-    if (head == null){
-      return ;
-    }
-    ListNode prev=null;
-    ListNode curr=head;
-    ListNode next=curr.getNext();
-    if(curr.getNext() == null){
-      return ;
-    }
-    while (curr!=null) {
-      ListNode checkNext=curr;
-      int count = 0;  
-      while (checkNext!=null) {
-        checkNext=checkNext.getNext();
-        count++;
-      }
-      if(count<n) {
-        return;
-      }
-    }
-    for (int i =0; i<n; i++) {
-      next=curr.getNext();
-      prev=curr;
-    }
-    return;
+    if (list == null || n <= 1) {
+            return;
+        }
 
+        ListNode currentNode = list;
+        ListNode previousChunkTail = null;
+
+        while (currentNode != null) {
+            ListNode chunkEnd = currentNode;
+            int count = 1;
+
+            while (count < n && chunkEnd != null) {
+                chunkEnd = chunkEnd.getNext();
+                count++;
+            }
+
+            if (chunkEnd == null) {
+                return;
+            }
+
+            ListNode nextChunk = chunkEnd.getNext();
+            ListNode previousNode = nextChunk;
+            ListNode chunkTail = currentNode;
+
+            while (currentNode != nextChunk) {
+                ListNode nextNode = currentNode.getNext();
+                currentNode.setNext(previousNode);
+                previousNode = currentNode;
+                currentNode = nextNode;
+            }
+
+            if (previousChunkTail == null) {
+                head = previousNode;
+            } else {
+                previousChunkTail.setNext(previousNode);
+            }
+            previousChunkTail = chunkTail;
+        }
   }
 
 }
